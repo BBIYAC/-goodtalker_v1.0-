@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <title>analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="tit-analysis">
+        <span>Your text</span>
+        <span>Frequency</span>
+    </div>
+    <div class="contents-analysis">
+        <div class="usertext">
+            어 저의 가장 친한 친구는 냐옹이에요. <br><br>
+            음 길가다 우연히 마주쳤어요. <br><br>
+            완전 운명인 것 같았는데... <br><br>
+            음 지나고 보니 아니었던 것 같아요. <br><br>
+        </div>
+        <div class="frequency">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div class="btn-nextprev">
+        <button class="prev" onclick="location.href='{% url 'topic:topic' %}'">Prev</button>
+        <button class="save" onclick="location.href='#'">Save</button>
+    </div>
+
+    <script src="{% static 'analysis/analysis.js' %}" ></script>
+{% endblock %}
