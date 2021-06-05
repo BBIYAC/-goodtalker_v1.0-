@@ -123,7 +123,7 @@ if (navigator.mediaDevices) {
                 saveButton.setAttribute('href', audioURL)
                 // saveButton.setAttribute('target', '_blank')
                 // saveButton.setAttribute('type', 'media_type')
-                saveButton.setAttribute('download', "test")
+                saveButton.setAttribute('download', "voice")
             }
 
             mediaRecorder.ondataavailable = e => {
