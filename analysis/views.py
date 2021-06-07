@@ -6,7 +6,7 @@ import os.path
 from analysis.voice_ml import run_ml
 
 def loading(request):
-    return render(request, 'show_anaylsis.html')
+    return render(request, 'loading.html')
 
 def show_analysis(request):
     filename = 'voice'

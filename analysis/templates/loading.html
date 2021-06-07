@@ -3,16 +3,16 @@
 
 {% block header %}
     <title>analysis</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    </style>
 {% endblock %}
 
 {% block content %}
     loading page...
     </div>
+    <div id="loading"></div>
     <div class="btn-nextprev">
         <button class="prev" onclick="location.href='{% url 'topic:topic' %}'">Prev</button>
-        <button class="save" onclick="location.href='{% url 'analysis:analysis' %}'">Save</button>
+        <button class="save" onclick="location.href='{% url 'analysis:analysis' %}'">Next</button>
     </div>
 
-    <!-- <script src="{% static 'analysis/analysis.js' %}" ></script> -->
 {% endblock %}
