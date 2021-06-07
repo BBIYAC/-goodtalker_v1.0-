@@ -29,7 +29,7 @@ def loading(request):
 
         if error_handle_code == 999:
             text = result.get('message')
-            data = [0, 0, 0, 0]
+            data = [0, 0, 0]
 
         elif error_handle_code == 200:
             result = result.get('message')
