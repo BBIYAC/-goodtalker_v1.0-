@@ -118,11 +118,8 @@ if (navigator.mediaDevices) {
                 deleteButton.onclick = e => {
                     evtTgt = e.target
                     evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode)
-                    // contentsUpload.querySelector('.upload-file').style.display="";
                 }
                 saveButton.setAttribute('href', audioURL)
-                // saveButton.setAttribute('target', '_blank')
-                // saveButton.setAttribute('type', 'media_type')
                 saveButton.setAttribute('download', "voice")
             }
 

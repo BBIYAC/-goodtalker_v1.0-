@@ -6,10 +6,10 @@ import os.path
 from analysis.voice_ml import run_ml
 
 
-def show_analysis(request):
+def loading(request):
     return render(request, 'show_anaylsis.html')
 
-def loading(request):
+def show_analysis(request):
     filename = 'voice'
     saved_file_path = convert_voice(filename)
     # print("saved_file_path: {}".format(saved_file_path))
@@ -17,7 +17,7 @@ def loading(request):
 
     if error_handle_code == 999:
         text = saved_file_path.get('message')
-        data = [0, 0, 0, 0]
+        data = [0, 0, 0]
         return render(request, 'show_anaylsis.html', {'text': text,})
     else:
         # saved_file_path = "C:\\Users\\iykim\\Downloads\\voice.wav"
@@ -48,18 +48,24 @@ def convert_voice(filename):
     # print("src_f: {}".format(src_f))
 
     # print("os.path.isfile(dst_f): {}".format(os.path.isfile(dst_f)))
-    if os.path.isfile(dst_f) ==True:
-        res = {"code": 999, "message": "DST FILE EXISIT"}
-        return res
-
-    elif os.path.isfile(src_f) == False:
+    if os.path.isfile(src_f) == False:
         res = {"code": 999, "message": "NOT VOICE FILE"}
         return res
 
-    else:
-        subprocess.run(['ffmpeg', '-i', src_f, dst_f])
-        msg = {"code": 200, "message": str(dst_f)}
-        return msg
+    if os.path.exists(dst_f):
+        # res = {"code": 999, "message": "DST FILE EXISIT"}
+        # return res
+        os.remove(dst_f)
+        
+        print('wav 파일 덮어쓰기 성공')
+
+    
+    
+    subprocess.run(['ffmpeg', '-i', src_f, dst_f])
+    # 파일 변환 후 기존 oga 파일 삭제
+    os.remove(src_f)
+    msg = {"code": 200, "message": str(dst_f)}
+    return msg
 
 # get voice.wav file
 def get_file(file_path):
