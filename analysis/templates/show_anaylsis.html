@@ -4,6 +4,23 @@
 {% block header %}
     <title>analysis</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript">
+      // send Email
+      function sendEmail() {
+            Email.send({
+              SecureToken : "bbd3d1bf-ced0-4e57-aa16-709c0e26bd55",
+              To: 'dlsdud1757@naver.com',
+              From: "kiy7833@gmail.com",
+              Subject: "Sending Email From GoodTalker",
+              Body: "<b> your Text </b> <br> {{text}} <br><br> <b> your Language Habits </b><br>어: {{ data.0 }}회  <br>음: {{ data.1 }}회  <br>그: {{ data.2 }}회",
+            })
+              .then(function (message) {
+                alert("mail sent successfully")
+              });
+          }
+
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -22,11 +39,13 @@
     </div>
     <div class="btn-nextprev">
         <button class="prev" onclick="location.href='{% url 'topic:topic' %}'">Prev</button>
-        <button class="save" onclick="location.href='#'">Save</button>
+        <form method = "post">
+          <input class="save" type = "button" value = "Send" onclick = "sendEmail()"/>
+        </form> 
     </div>
 
-    <!-- <script src="{% static 'analysis/analysis.js' %}" ></script> -->
-
+    
+    
     <script type="text/javascript">
         // chart
         var ctx = document.getElementById('myChart');
@@ -60,5 +79,6 @@
                 }
               }
         }); 
+        
     </script>
 {% endblock %}

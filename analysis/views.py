@@ -5,7 +5,6 @@ import datetime
 import os.path
 from analysis.voice_ml import run_ml
 
-
 def loading(request):
     return render(request, 'show_anaylsis.html')
 
@@ -56,11 +55,9 @@ def convert_voice(filename):
         # res = {"code": 999, "message": "DST FILE EXISIT"}
         # return res
         os.remove(dst_f)
-        
-        print('wav 파일 덮어쓰기 성공')
 
     
-    
+    # subprocess.run(['ffmpeg.exe 파일 절대경로', '-i', src_f, dst_f])
     subprocess.run(['ffmpeg', '-i', src_f, dst_f])
     # 파일 변환 후 기존 oga 파일 삭제
     os.remove(src_f)
