@@ -249,10 +249,10 @@ def Audio_file_Read(filename):
             universal_dict = dict(cnt)
             if "어" in universal_dict:
                 gantu[0]=universal_dict["어"]
-            if "음" in universal_dict:
-                gantu[1]=universal_dict["음"]
-            if "그" in universal_dict:
-                gantu[2]=universal_dict["그"]
+            if "아니" in universal_dict:
+                gantu[1]=universal_dict["아니"]
+            if "근데" in universal_dict:
+                gantu[2]=universal_dict["근데"]
             if "이제" in universal_dict:
                 gantu[3]=universal_dict["이제"]
             text = recognized

@@ -41,6 +41,8 @@ def show_analysis(request):
 # convert oga to wav
 def convert_voice(filename):
     #TODO when save voice file, user can write filename and goodtalker get filename to use convert wav name
+    # src_f = "C:\\Users\\사용자 이름\\Downloads\\{}.oga".format(filename)
+    # dst_f = "C:\\Users\\사용자 이름\\Downloads\\{}.wav".format(filename)
     src_f = "C:\\Users\\iykim\\Downloads\\{}.oga".format(filename)
     dst_f = "C:\\Users\\iykim\\Downloads\\{}.wav".format(filename)
 
@@ -52,9 +54,10 @@ def convert_voice(filename):
         return res
 
     if os.path.exists(dst_f):
-        # res = {"code": 999, "message": "DST FILE EXISIT"}
-        # return res
         os.remove(dst_f)
+        res = {"code": 999, "message": "DST FILE EXISIT"}
+        return res
+        
 
     
     # subprocess.run(['ffmpeg.exe 파일 절대경로', '-i', src_f, dst_f])

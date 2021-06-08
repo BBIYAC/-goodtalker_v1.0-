@@ -5,7 +5,6 @@ const soundClips = document.getElementById("sound-clips")
 const chkHearMic = document.getElementById("chk-hear-mic")
 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
-console.log('audioContext start')
 const analyser = audioCtx.createAnalyser()
 
 // 음성 녹음
