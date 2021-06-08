@@ -8,16 +8,18 @@
     <script type="text/javascript">
       // send Email
       function sendEmail() {
-            Email.send({
-              SecureToken : "bbd3d1bf-ced0-4e57-aa16-709c0e26bd55",
-              To: 'dlsdud1757@naver.com',
-              From: "kiy7833@gmail.com",
-              Subject: "Sending Email From GoodTalker",
-              Body: "<b> your Text </b> <br> {{text}} <br><br> <b> your Language Habits </b><br>어: {{ data.0 }}회  <br>음: {{ data.1 }}회  <br>그: {{ data.2 }}회",
-            })
-              .then(function (message) {
-                alert("mail sent successfully")
-              });
+        var inputEmail = prompt('이메일을 입력하세요.', '');
+
+        Email.send({
+          SecureToken : "bbd3d1bf-ced0-4e57-aa16-709c0e26bd55",
+          To: inputEmail,
+          From: "kiy7833@gmail.com",
+          Subject: "Sending Email From GoodTalker",
+          Body: "<b> your Text </b> <br> {{text}} <br><br> <b> your Language Habits </b><br>어: {{ data.0 }}회  <br>음: {{ data.1 }}회  <br>그: {{ data.2 }}회 <br>이제: {{data.3}}회",
+        })
+          .then(function (message) {
+            alert(inputEmail+"로 메일을 성공적으로 전송하였습니다!")
+          });
             
       }
     </script>
