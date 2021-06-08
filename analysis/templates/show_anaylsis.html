@@ -20,32 +20,12 @@
               });
             
       }
-
-      //loading
-      $(window).load(function() {
-        // Animate loader off screen
-        $(".loading").fadeOut("fast");
-        $(".show-analysis").fadeIn("slow");
-      });
     </script>
   
 {% endblock %}
 
 {% block content %}
-    <div class="loading">
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-      <div class="wave"></div>
-    </div>
-    <div class="show-analysis">
-      <div class="tit-analysis">
+    <div class="tit-analysis">
         <span>Your text</span>
         <span>Frequency</span>
       </div>
@@ -64,7 +44,6 @@
             <input class="save" type = "button" value = "Send" onclick = "sendEmail()"/>
           </form> 
       </div>
-    </div>
 
     
     

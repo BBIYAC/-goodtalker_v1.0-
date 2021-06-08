@@ -42,7 +42,7 @@ nav i{
 
 /* contents */
 .contents{
-    margin: 7vh 20rem;
+    margin: 10vh 20rem;
     animation: fadein 1s;
     -webkit-animation: fadein 1s; /* Safari and Chrome */
 }
@@ -419,8 +419,8 @@ animation-delay: 0.9s;
         border-top: 1px dashed rgba(256,256,256,0.8);
         border-bottom: 1px dashed rgba(256,256,256,0.8);
     }
-    .contents{
-        margin: auto 2.5rem;
+    /* .contents{
+        margin: 2rem 2.5rem;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -428,7 +428,7 @@ animation-delay: 0.9s;
         right: 0;
         height: 60%;
         font-size: 0.85rem;
-    }
+    } */
 
     .contents-start img{
         width: 8rem;
