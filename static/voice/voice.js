@@ -139,7 +139,7 @@ $(document).ready(function () {
     var big = data[0];
     var small = data[1];
 
-    const contents = document.querySelector('.contents');
+    const contents = document.querySelector('.show-voice');
     const topic = document.createElement('p');
     topic.innerHTML = decodeURI(big) + " > " + decodeURI(small);
     topic.classList.add('topicSentence');

@@ -18,30 +18,52 @@
               .then(function (message) {
                 alert("mail sent successfully")
               });
+            
       }
+
+      //loading
+      $(window).load(function() {
+        // Animate loader off screen
+        $(".loading").fadeOut("fast");
+        $(".show-analysis").fadeIn("slow");
+      });
     </script>
   
 {% endblock %}
 
 {% block content %}
-    <div class="tit-analysis">
+    <div class="loading">
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+    <div class="show-analysis">
+      <div class="tit-analysis">
         <span>Your text</span>
         <span>Frequency</span>
-    </div>
-    <div class="contents-analysis">
-        <div class="usertext">
-            {{text}}
-        </div>
-        <div class="frequency">
-            <canvas id="myChart"></canvas>
-            
-        </div>
-    </div>
-    <div class="btn-nextprev">
-        <button class="prev" onclick="location.href='{% url 'topic:topic' %}'">Prev</button>
-        <form method = "post">
-          <input class="save" type = "button" value = "Send" onclick = "sendEmail()"/>
-        </form> 
+      </div>
+      <div class="contents-analysis">
+          <div class="usertext">
+              {{text}}
+          </div>
+          <div class="frequency">
+              <canvas id="myChart"></canvas>
+              
+          </div>
+      </div>
+      <div class="btn-nextprev">
+          <button class="prev" onclick="location.href='{% url 'topic:topic' %}'">Prev</button>
+          <form method = "post">
+            <input class="save" type = "button" value = "Send" onclick = "sendEmail()"/>
+          </form> 
+      </div>
     </div>
 
     

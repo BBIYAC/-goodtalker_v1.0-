@@ -155,6 +155,7 @@ def STT_with_json(audio_file, jsons):
   filler_3 = 0
   audio_total_length = audio_file.duration_seconds
   silence_interval = 0
+  global first_silence_interval
   for json in jsons :
     if json['tag'] == '0000':
       # 통역 개시 지연시간
