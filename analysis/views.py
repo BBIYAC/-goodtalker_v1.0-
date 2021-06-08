@@ -16,7 +16,7 @@ def show_analysis(request):
 
     if error_handle_code == 999:
         text = saved_file_path.get('message')
-        data = [0, 0, 0]
+        data = [0, 0, 0, 0]
         return render(request, 'show_anaylsis.html', {'text': text,})
     else:
         # saved_file_path = "C:\\Users\\iykim\\Downloads\\voice.wav"
@@ -28,7 +28,7 @@ def show_analysis(request):
 
         if error_handle_code == 999:
             text = result.get('message')
-            data = [0, 0, 0]
+            data = [0, 0, 0, 0]
 
         elif error_handle_code == 200:
             result = result.get('message')

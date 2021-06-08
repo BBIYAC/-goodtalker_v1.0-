@@ -8,7 +8,9 @@
 import os
 import speech_recognition as sr
 from speech_recognition import UnknownValueError, Recognizer
-from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.text import Tokenizer,text_to_word_sequence
+import collections
+import operator
 
 from pydub import AudioSegment
 from pydub.silence import detect_silence
@@ -233,6 +235,8 @@ def make_transcript(audio_file_path):
 def Audio_file_Read(filename):
     universal_dict={}
     cnt = {}
+    gantu = [0,0,0,0]
+    analysis = {}
     token = Tokenizer()
     recog = Recognizer()
     try:
@@ -240,26 +244,42 @@ def Audio_file_Read(filename):
         with audioFile as source:
             audio = recog.record(source)
             recognized = recog.recognize_google(audio,language="ko-KR")
+            res = text_to_word_sequence(recognized)
+            cnt=collections.Counter(res)
+            universal_dict = dict(cnt)
+            if "어" in universal_dict:
+                gantu[0]=universal_dict["어"]
+            if "음" in universal_dict:
+                gantu[1]=universal_dict["음"]
+            if "그" in universal_dict:
+                gantu[2]=universal_dict["그"]
+            if "이제" in universal_dict:
+                gantu[3]=universal_dict["이제"]
             text = recognized
-            return text
+            analysis['text'] = text
+            analysis['data'] = gantu
+            return analysis
     except UnknownValueError:
-            text = "당신이 말한 문장이 없습니다."
-            return text
+            analysis['text'] = "당신이 말한 문장이 없습니다."
+            analysis['data'] = [0, 0, 0, 0]
+            return analysis
 
 
 def run_ml(file_path):
     # Deep Learning Model
-    transcript_json, statistics_filler_json, statistics_silence_json = make_transcript(file_path)
+    # transcript_json, statistics_filler_json, statistics_silence_json = make_transcript(file_path)
 
     # you sould follow under data type
     result={}
-    text = Audio_file_Read(file_path)
-    count = statistics_filler_json[0]
-    data = [count['어'],count['음'] , count['그']]
+    # text = Audio_file_Read(file_path)
+    # count = statistics_filler_json[0]
+    # data = [count['어'],count['음'] , count['그']]
+    # result['text'] = text
+    # result['data'] = data
 
     #--------
-    result['text'] = text
-    result['data'] = data
+    result['text'] = Audio_file_Read(file_path)['text']
+    result['data'] = Audio_file_Read(file_path)['data']
     # print("result: {}".format(result))
     os.remove(file_path)
     return result
