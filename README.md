@@ -1,4 +1,6 @@
 # 언어 교정 프로그램
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/Google STT-4285F4?style=flat-square&logo=Google&logoColor=white"/> <img src="https://img.shields.io/badge/Google Maps-4285F4?style=flat-square&logo=Google Maps&logoColor=white"/>
+
 
 #### * 주요 기능
 1. 음성 녹음
